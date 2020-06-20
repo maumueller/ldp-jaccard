@@ -13,10 +13,11 @@ for e in buckets.yaml synthetic.yaml synthetic_small.yaml; do
     $PYTHON run_synthetic.py experiments/$e $THREADS;
 done
 
+cat synthetic.csv synthetic_small.csv > synthetic_both.csv
+
 $PYTHON run_realworld.py experiments/real_world.yaml $THREADS
 
 $PYTHON compute_statistics.py real_world.results.pickle | tee ../results/real_world.csv
 
-$PYTHON split_up_log.py buckets.csv --prefix ../results/buckets_
-$PYTHON split_up_log.py synthetic.csv --prefix ../results/synthetic_
-$PYTHON split_up_log.py synthetic_small.csv --prefix ../results/synthetic_ --append
+$PYTHON split_up_log.py --prefix ../results/buckets_ buckets.csv
+$PYTHON split_up_log.py --prefix ../results/synthetic_ synthetic_both.csv
