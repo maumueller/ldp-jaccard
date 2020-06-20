@@ -1,7 +1,9 @@
 PYTHON=python3
-THREADS=6
+THREADS=55
 
-mkdir -p ../results
+mkdir -p results
+
+cd src/
 
 for i in 50 100 200 500; do
     $PYTHON get_groundtruth.py movielens.dat $i;
@@ -21,3 +23,6 @@ $PYTHON compute_statistics.py real_world.results.pickle | tee ../results/real_wo
 
 $PYTHON split_up_log.py --prefix ../results/buckets_ buckets.csv
 $PYTHON split_up_log.py --prefix ../results/synthetic_ synthetic_both.csv
+
+cd ..
+jupyter nbconvert --to html --execute log.ipynb
