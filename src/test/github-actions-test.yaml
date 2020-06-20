@@ -1,0 +1,17 @@
+environment:
+    workers: 1
+    seed: 12345
+    runs: 1
+global:
+    - k:
+          min: 5 
+          max: 10 
+          inc: 5 
+      delta: [0.0001]
+      eps: [2.0]
+      datasets: ["lastfm.dat.20.pickle"] 
+experiments:
+    - name: "noisybucket"
+      b: [2]
+    - name: "bucket"
+      b: [2]
