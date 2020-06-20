@@ -1,6 +1,6 @@
 environment:
     seed: 12345
-    runs: 1
+    runs: 100
 global:
     - k:
         min: 5 

@@ -1,5 +1,5 @@
 PYTHON=python3
-THREADS=55
+THREADS=6
 
 mkdir -p results
 

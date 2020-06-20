@@ -7,7 +7,7 @@ global:
         max: 150 
         inc: 10
     size: [50, 100, 500, 1000, 2000]
-    runs: 1
+    runs: 100
     delta: [0.0001]
     eps: [2.0, 4.0, 6.0]
 experiments:
