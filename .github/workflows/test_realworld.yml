@@ -31,7 +31,7 @@ jobs:
       run: |
         cd src 
         python3 get_groundtruth.py lastfm.dat 20
-        python3 real_world.py test/github-actions-test.yaml
+        python3 run_realworld.py test/github-actions-test.yaml
         python3 compute_statistics.py github-actions-test.results.pickle
     - name: Lint with flake8
       run: |
