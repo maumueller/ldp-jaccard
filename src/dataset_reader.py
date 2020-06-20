@@ -41,12 +41,12 @@ def read_lastfm(data_file):
     """
     users = collections.OrderedDict()
     with open(data_file) as f:
-        next(f) # skip header line
+        next(f)  # skip header line
         prev_user = 0
         min_heap = []
         for line in f:
             user_id, artist_id, weight = [int(x) for x in line.split("\t")[:3]]
-            if user_id != prev_user :
+            if user_id != prev_user:
                 users[prev_user] = min_heap
                 prev_user = user_id
                 min_heap = []
@@ -55,7 +55,7 @@ def read_lastfm(data_file):
             elif weight > min_heap[0][0]:
                 heapq.heapreplace(min_heap, (weight, artist_id))
         users[prev_user] = min_heap
-    del users[0] #first one empty
+    del users[0]  # first one empty
     users_cleaned = del_weights(users)
     return (users_cleaned)
 
@@ -66,7 +66,7 @@ def read_movielens(data_file):
     """
     users = collections.OrderedDict()  # maps user to pref_set
     with open(data_file) as f:
-        next(f) # skip header line
+        next(f)  # skip header line
         for line in f:
             info = line.split("\t")[:3]
             users.setdefault(int(info[0]), [])
@@ -82,8 +82,8 @@ def read_movielens(data_file):
 
 def read_data(data_file):
     """Main method of class. Receives a text file as string and chooses which
-    function to call to process the data set. Returns a dictionary mapping user IDs
-    to item sets.
+    function to call to process the data set. Returns a dictionary
+    mapping user IDs to item sets.
     """
     data_file = 'datasets/' + data_file
     if 'movielens' in data_file:
@@ -93,8 +93,3 @@ def read_data(data_file):
     else:
         print("ERROR: DataReader couldn't determine dataset")
     return users
-
-
-
-
-

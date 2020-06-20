@@ -1,0 +1,18 @@
+environment:
+    seed: 12345
+global:
+    threshold: [0.1, 0.5, 0.9]
+    k:
+        min: 20
+        max: 500
+        inc: 10
+    size: [500, 1000, 2000]
+    runs: 1
+    delta: [0.0001]
+    eps: [2.0, 4.0, 6.0, 8.0]
+experiments:
+    - name: "onebit"
+    - name: "noisybucket"
+      b: [2]
+    - name: "bucket"
+      b: [2]

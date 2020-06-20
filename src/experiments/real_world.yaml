@@ -1,0 +1,46 @@
+environment:
+    seed: 12345
+    runs: 1
+global:
+    - k:
+        min: 5 
+        max: 55
+        inc: 5 
+      delta: [0.0001]
+      eps: [2.0, 4.0, 6.0, 8.0, 10.0, 15.0, 20.0]
+      datasets: ["lastfm.dat.20.pickle"] 
+    - k:
+          min: 5 
+          max: 120 
+          inc: 10 
+      delta: [0.0001]
+      eps: [2.0, 4.0, 6.0, 8.0, 10.0, 15.0]
+      datasets: ["movielens.dat.500.pickle"] 
+    - k:
+          min: 5 
+          max: 120 
+          inc: 10 
+      delta: [0.0001]
+      eps: [2.0, 4.0, 6.0, 8.0, 10.0, 15.0]
+      datasets: ["movielens.dat.200.pickle"] 
+    - k:
+          min: 5 
+          max: 120 
+          inc: 10 
+      delta: [0.0001]
+      eps: [2.0, 4.0, 6.0, 8.0, 10.0, 15.0]
+      datasets: ["movielens.dat.100.pickle"] 
+    - k:
+          min: 5 
+          max: 60 
+          inc: 5
+      delta: [0.0001]
+      eps: [2.0, 4.0, 6.0, 8.0, 10.0, 15.0]
+      datasets: ["movielens.dat.50.pickle"] 
+
+experiments:
+    - name: "noisybucket"
+      b: [2, 3]
+    - name: "bucket"
+      b: [2, 3]
+    - name: "onebit"
